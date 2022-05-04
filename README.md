@@ -60,7 +60,12 @@ Build assets:
 sail npm run dev
 ```
 
-Open URL in your browser
+Open URL in your browser 
 ```sh
 http://laravel.test.localhost/
+```
+
+Running dusk browser automation tests
+```
+sail dusk
 ```
