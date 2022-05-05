@@ -35,10 +35,9 @@ class Login extends Page
     }
 
     /**
-     * Create a new playlist.
+     * Set incorrect credentials
      *
      * @param  \Laravel\Dusk\Browser  $browser
-     * @param  string  $name
      * @return void
      */
     public function setWrongCredentials(Browser $browser)
@@ -47,6 +46,17 @@ class Login extends Page
             ->type('@email', 'wrongUser')
             ->type('@password', 'wrongPassword')
             ->press('@btn');
+    }
+
+    /**
+     * Submit Form
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @return void
+     */
+    public function submitLoginForm(Browser $browser)
+    {
+        $browser->press('@btn');
     }
 
     /**

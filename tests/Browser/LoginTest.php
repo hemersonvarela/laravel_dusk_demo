@@ -2,18 +2,12 @@
 
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\Browser\Pages\Login;
 use Tests\DuskTestCase;
 
 class LoginTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
     public function testLoginFormWithWrongCredentials()
     {
         $this->browse(function (Browser $browser) {
@@ -23,4 +17,15 @@ class LoginTest extends DuskTestCase
                 ->assertSee('Whoops! Something went wrong.');
         });
     }
+
+    public function testLoginForm()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit(new Login())
+                ->submitLoginForm()
+                ->pause(1000)
+                ->assertSee('Dashboard');
+        });
+    }
+
 }
